@@ -3,29 +3,29 @@
 
 ## 動作環境
 Python
-、、、
+```
 $ python --version
-、、、
+```
 
 pipのアップグレード
-、、、
+```
 $ python -m pip install --upgrade pip
-、、、
+```
 
 FastAPIをインストール
-、、、
+```
 $ pip install fastapi
-、、、
+```
 
 Uvicornをインストール
-、、、
+```
 $ pip install "uvicorn[standard]"
-、、、
+```
 
 Requestsのインストール
-、、、
+```
 $ pip install requests
-、、、
+```
 
 ## main.py
 エンドポイント設定用ファイル
