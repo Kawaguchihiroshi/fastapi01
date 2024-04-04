@@ -19,6 +19,7 @@ FastAPIをインストール
 ```
 $ pip install fastapi
 ```
+使い方：https://fastapi.tiangolo.com/ja/
 <br><br>
 Uvicornをインストール
 ```
@@ -29,6 +30,7 @@ Requestsのインストール
 ```
 $ pip install requests
 ```
+使い方：https://note.nkmk.me/python-requests-usage/
 <br><br>
 ## main.py
 エンドポイント設定用ファイル
@@ -38,7 +40,7 @@ $ python -m uvicorn main:app
 ```
 <br><br>
 ## client.py
-main.py側がちゃんと動作しているか確認用のファイル
+main.pyが正しく動作しているか確認するためのファイル
 ###### 実行コマンド
 ```
 $ python .\client.py
