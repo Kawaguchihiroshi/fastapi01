@@ -2,10 +2,13 @@
 ローカルで気軽に確認できるようにデータベースを絡めないテスト用API
 
 ## 動作環境
-Python
+Python 3.11.8
+バージョン確認
 ```
 $ python --version
 ```
+**インストール（windows）**；https://www.python.org/downloads/windows/
+**インストール（mac）**；https://www.python.org/downloads/macos/
 
 pipのアップグレード
 ```
