@@ -7,6 +7,16 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+# CORSミドルウェアを追加してOPTIONSメソッドを許可する
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # すべてのオリジンを許可（必要に応じて適切な設定に変更）
+    allow_methods=["*"],  # すべてのHTTPメソッドを許可（必要に応じて適切な設定に変更）
+    allow_headers=["*"],  # すべてのヘッダーを許可（必要に応じて適切な設定に変更）
+)
+
+
+
 # ユーザー情報（全員）
 @app.get("/user")
 def read_user():
@@ -70,8 +80,8 @@ def read_ledger():
       "confirmation_at": 20240115
     },
     {
-      "case_id": "cid0101001",
-      "case_name": "東京スカイツリー",
+      "case_id": "cid0101002",
+      "case_name": "隅田川",
       "handle_id": "hid0101001",
       "handle_name": "山田太郎",
       "user_id": "ABC001001",
@@ -85,8 +95,8 @@ def read_ledger():
       "confirmation_at": 20240115
     },
     {
-      "case_id": "cid0101001",
-      "case_name": "東京スカイツリー",
+      "case_id": "cid0101003",
+      "case_name": "東京ディズニーランド",
       "handle_id": "hid0101001",
       "handle_name": "山田太郎",
       "user_id": "ABC001001",
@@ -100,8 +110,68 @@ def read_ledger():
       "confirmation_at": 20240115
     },
     {
-      "case_id": "cid0101001",
-      "case_name": "東京スカイツリー",
+      "case_id": "cid0101004",
+      "case_name": "東京タワー",
+      "handle_id": "hid0101001",
+      "handle_name": "山田太郎",
+      "user_id": "ABC001001",
+      "department_id": "did001",
+      "department_name": "営業部",
+      "office_id": "oid0001",
+      "office_name": "東京本社",
+      "status_id": "sid004",
+      "status_name": "確認済み",
+      "created_at": 20240101,
+      "confirmation_at": 20240115
+    },
+        {
+      "case_id": "cid0101005",
+      "case_name": "宮下パーク",
+      "handle_id": "hid0101001",
+      "handle_name": "山田太郎",
+      "user_id": "ABC001001",
+      "department_id": "did001",
+      "department_name": "営業部",
+      "office_id": "oid0001",
+      "office_name": "東京本社",
+      "status_id": "sid004",
+      "status_name": "確認済み",
+      "created_at": 20240101,
+      "confirmation_at": 20240115
+    },
+    {
+      "case_id": "cid0101006",
+      "case_name": "スターバックス六本木店",
+      "handle_id": "hid0101001",
+      "handle_name": "山田太郎",
+      "user_id": "ABC001001",
+      "department_id": "did001",
+      "department_name": "営業部",
+      "office_id": "oid0001",
+      "office_name": "東京本社",
+      "status_id": "sid004",
+      "status_name": "確認済み",
+      "created_at": 20240101,
+      "confirmation_at": 20240115
+    },
+    {
+      "case_id": "cid0101007",
+      "case_name": "後楽園",
+      "handle_id": "hid0101001",
+      "handle_name": "山田太郎",
+      "user_id": "ABC001001",
+      "department_id": "did001",
+      "department_name": "営業部",
+      "office_id": "oid0001",
+      "office_name": "東京本社",
+      "status_id": "sid004",
+      "status_name": "確認済み",
+      "created_at": 20240101,
+      "confirmation_at": 20240115
+    },
+    {
+      "case_id": "cid0101008",
+      "case_name": "井之頭公園",
       "handle_id": "hid0101001",
       "handle_name": "山田太郎",
       "user_id": "ABC001001",
@@ -304,43 +374,118 @@ departments = [
 def read_department():
   return departments
 
-# handles = [
-#   {}
-# ]
+handles = [
+  {
+    "office_id": "oid0001",
+    "office_name": "東京営業所",
+    "department_id": "did0101",
+    "department_name": "第一営業部",
+    "handle_id": "hid0101001",
+    "handle_name": "山田太郎",
+  },
+  {
+    "office_id": "oid0001",
+    "office_name": "東京営業所",
+    "department_id": "did0101",
+    "department_name": "第一営業部",
+    "handle_id": "hid0101002",
+    "handle_name": "山田次郎",
+  },
+  {
+    "office_id": "oid0001",
+    "office_name": "東京営業所",
+    "department_id": "did0101",
+    "department_name": "第一営業部",
+    "handle_id": "hid0101003",
+    "handle_name": "山田花美",
+  },
+  {
+    "office_id": "oid0001",
+    "office_name": "東京営業所",
+    "department_id": "did0101",
+    "department_name": "第一営業部",
+    "handle_id": "hid0101004",
+    "handle_name": "山田三郎",
+  },
+  {
+    "office_id": "oid0001",
+    "office_name": "東京営業所",
+    "department_id": "did0102",
+    "department_name": "第二営業部",
+    "handle_id": "hid0102001",
+    "handle_name": "多田太郎",
+  },
+  {
+    "office_id": "oid0001",
+    "office_name": "東京営業所",
+    "department_id": "did0102",
+    "department_name": "第二営業部",
+    "handle_id": "hid0102002",
+    "handle_name": "多田次郎",
+  },
+  {
+    "office_id": "oid0001",
+    "office_name": "東京営業所",
+    "department_id": "did0102",
+    "department_name": "第二営業部",
+    "handle_id": "hid0102003",
+    "handle_name": "多田花子",
+  },
+  {
+    "office_id": "oid0001",
+    "office_name": "東京営業所",
+    "department_id": "did0103",
+    "department_name": "営業管理部",
+    "handle_id": "hid0103001",
+    "handle_name": "山元太郎",
+  },
+  {
+    "office_id": "oid0001",
+    "office_name": "東京営業所",
+    "department_id": "did0103",
+    "department_name": "営業管理部",
+    "handle_id": "hid0103002",
+    "handle_name": "山元次郎",
+  },
+]
 
 # 担当者名
-# @app.get("/department")
-# def read_handle():
-#   return handles
+@app.get("/handle")
+def read_handle():
+  return handles
 
 
 # 確認書の新規登録
-# class Item(BaseModel):
-#   name: str
-#   price: float
-#   description: Union[str, None] = None
+class Ledger(BaseModel):
+  case_id: str
+  case_name: str
+  handle_id: str
+  handle_name: str
+  user_id: str
+  department_id: str
+  department_name: str
+  office_id: str
+  office_name: str
+  status_id: str
+  status_name: str
+  created_at: int
+  confirmation_at: int
 
-# @app.post("/newitems/")
-# def create_item(item: Item):
-#   print(f"データを登録します: {item.name}, {item.price}, {item.description}")
-#   return item
-
-# CORSミドルウェアを追加してOPTIONSメソッドを許可する
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # すべてのオリジンを許可（必要に応じて適切な設定に変更）
-    allow_methods=["*"],  # すべてのHTTPメソッドを許可（必要に応じて適切な設定に変更）
-    allow_headers=["*"],  # すべてのヘッダーを許可（必要に応じて適切な設定に変更）
-)
+@app.post("/newledger")
+def create_ledger(ledger: Ledger):
+  print(f"データを登録します: {ledger.case_name}, {ledger.handle_name}, {ledger.status_name}")
+  return ledger
 
 
-# ユーザーの新規登録
+
+# 利用者の新規登録
 class User(BaseModel):
   name: str
   mail: str
-  description: Union[str, None] = None
+  select: str
+  checkagree: bool
 
-@app.post("/newusers")
+@app.post("/newuser")
 def create_user(user: User):
-  print(f"データを登録します: {user.name}, {user.mail}, {user.description}")
+  print(f"データを登録します: {user.name}, {user.mail}, {user.select}, {user.checkagree}")
   return user
